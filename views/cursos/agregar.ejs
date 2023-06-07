@@ -1,0 +1,113 @@
+<%- include("../header"); %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Agregar Curso</h1>
+      <form method="post" action="/cursos/insertar">
+        <!-- ?ID -->
+        <div class="form-group mt-3">
+          <label for="id_curso">ID Curso</label>
+          <input
+            required
+            id="id_curso"
+            placeholder="Id del curso (min 5)"
+            class="form-control"
+            type="number"
+            name="id_curso"
+          />
+        </div>
+        <!-- ?Nombre curso -->
+        <div class="form-group mt-3">
+          <label for="nombre_curso">Nombre Curso</label>
+          <input
+            required
+            id="nombre_curso"
+            placeholder="Nombre del curso"
+            class="form-control"
+            type="text"
+            name="nombre_curso"
+          />
+        </div>
+        <!-- ?URL ruta curso -->
+        <div class="form-group mt-3">
+          <label for="url_ruta_acceso">Página del Curso</label>
+          <input
+            required
+            id="url_ruta_acceso"
+            placeholder="Url de la página del curso"
+            class="form-control"
+            type="url"
+            name="url_ruta_acceso"
+          />
+        </div>
+        <!-- ?Fecha inicio -->
+        <div class="form-group mt-3">
+          <label for="fecha_inicio">Fecha de Inicio</label>
+          <input
+            required
+            id="fecha_inicio"
+            placeholder="Fecha de inicio del curso"
+            class="form-control"
+            type="date"
+            name="fecha_inicio"
+          />
+        </div>
+        <!-- ?Fecha final -->
+        <div class="form-group mt-3">
+          <label for="fecha_final">Fecha de Finalización</label>
+          <input
+            required
+            id="fecha_final"
+            placeholder="Fecha de finalización del curso"
+            class="form-control"
+            type="date"
+            name="fecha_final"
+          />
+        </div>
+        <!-- ?Semestre -->
+        <div class="form-group mt-3">
+          <label for="semestre">Semestre</label>
+          <input
+            required
+            id="semestre"
+            placeholder="Semestre en el que se realiza el curso"
+            class="form-control"
+            type="number"
+            min="1"
+            max="12"
+            name="semestre"
+          />
+        </div>
+        <!-- ?Precio -->
+        <div class="form-group mt-3">
+          <label for="precio">Precio</label>
+          <input
+            required
+            id="precio"
+            placeholder="Precio del curso"
+            class="form-control"
+            type="number"
+            name="precio"
+          />
+        </div>
+        <!-- ?Categoría -->
+        <div class="form-group mt-3">
+          <label for="categoria">Categoría</label>
+          <input
+            required
+            id="categoria"
+            placeholder="Categoría del curso"
+            class="form-control"
+            type="text"
+            name="categoria"
+          />
+        </div>
+        <div class="form-group my-4 d-flex gap-2 justify-content-end">
+          <button class="btn btn-success">Guardar</button>
+          &nbsp;<a href="/cursos" class="btn btn-primary">Volver</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include("../footer"); %>

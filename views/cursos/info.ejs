@@ -1,0 +1,162 @@
+<%- include("../header"); %>
+<div class="container">
+  <div class="row m-0 mt-4">
+    <div class="col-10 mx-auto">
+      <% let size = cursos.length %> <% cursos = cursos.slice(0,1) %> <%
+      cursos.forEach(curso => { %>
+      <div class="my-3 mb-4" id="curso-info-container">
+        <h1 class="my-3 text-center">
+          <i class="bi bi-book-half"></i> Información del curso -
+          <strong><%= curso.nombre_curso %></strong>
+        </h1>
+        <div class="bg-dark rounded-2 text-light p-3 my-5">
+          <h3>
+            Categoría del curso
+            <i class="bi bi-caret-right-fill text-warning"></i>
+            <%= curso.categoria %>
+          </h3>
+          <h3 class="mt-4">
+            Url del curso <i class="bi bi-caret-right-fill text-warning"></i>
+            <a href="#!"><%= curso.url_ruta_acceso %></a>
+          </h3>
+          <h3 class="mt-4">
+            Fecha de inicio del curso
+            <i class="bi bi-caret-right-fill text-warning"></i>
+            <span class="text-light p-1 rounded-2"
+              ><%= curso.fecha_inicio.toLocaleDateString('Es-es', { weekday:
+              'long', day: 'numeric', month: 'long', year: 'numeric' }) %></span
+            >
+          </h3>
+          <h3 class="mt-4">
+            Fecha de finalización del curso
+            <i class="bi bi-caret-right-fill text-warning"></i>
+            <span class="text-light p-1 rounded-2"
+              ><%= curso.fecha_final.toLocaleDateString('Es-es', { weekday:
+              'long', day: 'numeric', month: 'long', year: 'numeric' }) %></span
+            >
+          </h3>
+          <h3 class="mt-4">
+            Semestre del curso
+            <i class="bi bi-caret-right-fill text-warning"></i> <%=
+            curso.semestre %>
+          </h3>
+          <h3 class="mt-4">
+            Precio del curso <i class="bi bi-caret-right-fill text-warning"></i>
+            <span class="bg-success text-light p-1 rounded-2"
+              >$<%= curso.precio.toLocaleString(undefined, {
+              minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span
+            >
+          </h3>
+        </div>
+        <hr />
+        <div class="my-5">
+          <h1 class="my-3">Información adicional del curso</h1>
+          <h3 class="mt-4">
+            Profesor del curso <i class="bi bi-caret-right-fill"></i> <%=
+            curso.nombre_completo %>
+          </h3>
+          <h3 class="mt-4">
+            Estudiantes inscritos en el curso
+            <i class="bi bi-caret-right-fill"></i> <%=size %>
+          </h3>
+        </div>
+        <hr />
+        <div class="my-5">
+          <h1 class="my-3">Últimas asginaciones del curso</h1>
+          <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <h4>Tareas</h4>
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                  <h3 class="card-title"><%=curso.titulo_tareas %></h3>
+                  <p class="card-text"><%=curso.descripcion_tareas %></p>
+                  <hr />
+                  <div class="">
+                    <p class="bg-warning rounded-2 text-center text-dark p-2">
+                      <span>Fecha de entrega - </span>
+                      <%= curso.fecha_entrega.toLocaleDateString('Es-es', {
+                      weekday: 'long', day: 'numeric', month: 'long', year:
+                      'numeric' }) %>
+                    </p>
+                  </div>
+                  <div class="">
+                    <p>
+                      Archivos adjuntados:
+                      <a href="#!"><%=curso.archivos_material %></a>
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href="#!" class="btn btn-primary"
+                      >Descargar archivos
+                      <i class="bi bi-file-earmark-arrow-down"></i
+                    ></a>
+                    <a href="#!" class="btn btn-success"
+                      >Subir archivo <i class="bi bi-file-earmark-arrow-up"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <h4>Foros</h4>
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                  <h3 class="card-title"><%=curso.nombre_foros %></h3>
+                  <p class="card-text"><%=curso.descripcion_foro %></p>
+                  <hr />
+                  <div class="">
+                    <p class="bg-warning rounded-2 text-center text-dark p-2">
+                      <span>Fecha de cierre - </span>
+                      <%= curso.fecha_terminacion.toLocaleDateString('Es-es', {
+                      weekday: 'long', day: 'numeric', month: 'long', year:
+                      'numeric' }) %>
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <a href="#!" class="btn btn-secondary"
+                      >Participar en el foro <i class="bi bi-pencil-square"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row my-3">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <h4>Mensajes</h4>
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                  <h3 class="card-title"><%=curso.nombre_mensajes %></h3>
+                  <p class="card-text"><%=curso.descripcion_mensajes %></p>
+                  <div class="d-flex justify-content-between">
+                    <a href="#!" class="btn btn-warning"
+                      >Responder Mensaje
+                      <i class="bi bi-envelope-open-heart"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% })%> <% if (cursos.length === 0){%>
+      <div class="text-center">
+        <h1>Este curso no se encuentra disponible actualmente</h1>
+        <h2>Haz clic <a href="/cursos">aquí</a> para volver</h2>
+      </div>
+      <% }%>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("form");
+  const inputField = document.getElementById("buscar");
+  const btn = document.getElementById("btn-buscar");
+
+  btn.addEventListener("click", () => {
+    let id = inputField.value;
+  });
+</script>
+<%- include("../footer"); %>

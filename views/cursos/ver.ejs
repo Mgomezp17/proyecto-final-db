@@ -1,0 +1,60 @@
+<%- include("../header"); %>
+<div class="container">
+  <div class="row m-0 mt-4">
+    <div class="col-10 mx-auto">
+      <h1><i class="bi bi-book-half"></i> Cursos</h1>
+      <h3>Estos son los cursos que estan disponibles actualmente.</h3>
+      <table class="table table-dark table-striped mt-4">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table">
+          <% cursos.forEach(curso => { %>
+          <tr>
+            <td><%= curso.nombre_curso %></td>
+            <td><%= curso.categoria %></td>
+            <td>
+              <form
+                id="formulario-info"
+                action="cursos/info/<%= curso.id_curso %>"
+                method="get"
+              >
+                <input
+                  class="btn btn-secondary"
+                  type="submit"
+                  value="Ver Info"
+                />
+              </form>
+            </td>
+            <td>
+              <form
+                id="formulario-info"
+                action="cursos/editar/<%= curso.id_curso %>"
+                method="get"
+              >
+                <input class="btn btn-primary" type="submit" value="Editar" />
+              </form>
+            </td>
+            <td>
+              <form
+                id="formulario-info"
+                action="cursos/eliminar/<%= curso.id_curso %>"
+                method="get"
+              >
+                <input class="btn btn-danger" type="submit" value="Eliminar" />
+              </form>
+            </td>
+            <% })%>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include("../footer"); %>

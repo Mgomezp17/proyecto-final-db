@@ -1,0 +1,33 @@
+<%- include("../header"); %>
+<div class="row m-0 mt-4">
+  <div class="col-10 mx-auto">
+    <h1><i class="bi bi-person-workspace"></i> Profesores</h1>
+    <h3>Estos son los profesores con los que puedes elegir cursos.</h3>
+    <table class="table table-dark table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Área Principal</th>
+          <th>Área Alternativa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% profesores.forEach(profe => { %>
+        <tr>
+          <td><%= profe.nombre_completo %></td>
+          <td><%= profe.email_profesor %></td>
+          <td><%= profe.area_principal_conocimiento %></td>
+          <td><%= profe.area_alternativa_conocimiento %></td>
+          <td>
+            <button type="button" class="btn btn-primary">Contactar</button>
+          </td>
+
+          <% })%>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include("../footer"); %>
