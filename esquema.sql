@@ -253,11 +253,11 @@ create table mensajes_foros(
     foreign key (id_foros) references foro_cursos (id_foros)
 );
 
-INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38214, "Team Frío", "Yo soy tema frío toda la vida", 01002843, 456789123, 987654321);
+INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38214, "Bases de datos relacionales", "Bases de datos a partir de tablas", 01002843, 456789123, 987654321);
 INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38215, "Debate ángulos", "Pa mi los angulos polinomiales son de coordenadas polaroides", 01002844, 987654321, 456789123);
 INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38216, "Sistemas", "Yo pienso que estudiar ingeneria de sistemas es el futuro", 01002845, 444555666, 456789123);
 INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38217, "JavaScript", "Los eventos asincronicos sirven para poner anuncios en paginas web", 01002846, 444555666, 555777444);
-INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38218, "Tema polemico es la drogadiccion", "porque la drogas nos hacen ver cosas que en nustros cinco sentidos no vemos", 01002847, 444555666, 987654321);
+INSERT INTO mensajes_foros(id_mensajes, nombre_mensajes, descripcion_mensajes, id_foros, id_remitente, id_destinatario) VALUES (38218, "Tema polemico es la drogadicción", "porque la drogas nos hacen ver cosas que en nustros cinco sentidos no vemos", 01002847, 444555666, 987654321);
 
 create table actividades(
 	id_materiales int not null,
@@ -275,11 +275,12 @@ create table actividades(
     primary key (id_materiales,id_tareas,id_foros,id_mensajes,id_curso,id_profesor) 
 );
 
-INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (378956, 2837, 01002843, 38214, 72684, 8743912);
-INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (582743, 2838, 01002844, 38215, 67392, 2065873);
-INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (769812, 2839, 01002845, 38216, 16243, 9567124);
-INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (215890, 2840, 01002846, 38217, 84970, 7896543);
-INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (947136, 2841, 01002847, 38218, 50718, 3214567);
+INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (378956, 2837, 01002847, 38216, 67392, 8743912);
+INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (582743, 2840, 01002844, 38216, 67392, 2065873);
+INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (769812, 2839, 01002843, 38215, 72684, 9567124);
+INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (215890, 2843, 01002843, 38215, 16243, 7896543);
+INSERT INTO actividades(id_materiales, id_tareas, id_foros, id_mensajes, id_curso, id_profesor) VALUES (947136, 2841, 01002846, 38218, 50718, 3214567);
+
 
 -- select * from cursos inner join asigna on cursos.id_curso = asigna.id_curso inner join estudiantes on cursos.id_curso = estudiantes.id_curso inner join actividades on cursos.id_curso = actividades.id_curso where cursos.id_curso = 72684;
 
